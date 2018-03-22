@@ -1,0 +1,82 @@
+'use strict';
+
+const webpack = require('webpack');
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
+const extractSass = new ExtractTextPlugin('index.min.css');
+
+module.exports = {
+  context: __dirname,
+  resolve: {
+    modules: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'node_modules'),
+    ],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    },
+    extensions: ['.js', '.json', '.vue']
+  },
+  entry: './src/index.js',
+  externals: {
+    'vue': {
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue',
+      root: 'Vue'
+    },
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.min.js',
+    library: 'VueProgressIndicator',
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+    umdNamedDefine: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        exclude: path.resolve(__dirname, 'node_modules'),
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: path.resolve(__dirname, 'node_modules'),
+      },
+      {
+        test: /\.scss$/,
+        use: extractSass.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {importLoaders: 1}
+            },
+            {
+              loader: 'sass-loader',
+              options: {importLoaders: 1}
+            },
+          ],
+          // use style-loader in development
+          fallback: 'style-loader'
+        }),
+      },
+    ]
+  },
+  plugins: [
+    extractSass,
+    new CleanWebpackPlugin(['./dist']),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new UnminifiedWebpackPlugin({
+      exclude: /\.css$/
+    })
+  ],
+  devtool: false,
+  performance: {
+    hints: false,
+  }
+};

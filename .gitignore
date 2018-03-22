@@ -6,8 +6,7 @@
 
 # sublime and other ide
 .project
-*.sublime-project
-*.sublime-workspace
+*.sublime-*
 .brackets.json
 .vscode
 
@@ -66,3 +65,8 @@ composer.phar
 .env
 
 
+# Project related
+*.tgz
+/docs/
+/dist/
+/coverage/
