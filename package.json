@@ -1,0 +1,63 @@
+{
+  "name": "vue-progress-indicator",
+  "version": "0.0.1",
+  "description": "vue-progress-indicator",
+  "main": "dist/index.js",
+  "unpkg": "dist/index.min.js",
+  "style": "dist/index.min.css",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankurk91/vue-progress-indicator.git"
+  },
+  "keywords": [
+    "vue",
+    "progress",
+    "loading",
+    "loader",
+    "indicator"
+  ],
+  "author": "ankurk91",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ankurk91/vue-progress-indicator/issues"
+  },
+  "homepage": "https://github.com/ankurk91/vue-progress-indicator",
+  "scripts": {
+    "test": "echo \"Error: tests are coming soon\" && exit 1",
+    "start": "npm run dev",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
+    "build": "node ./node_modules/webpack/bin/webpack.js --hide-modules -p --progress",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "clean-webpack-plugin": "^0.1.18",
+    "css-loader": "^0.28",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.1.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "unminified-webpack-plugin": "^1.4",
+    "vue": "^2.5.13",
+    "vue-loader": "^14.1.1",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3",
+    "webpack-dev-server": "^2"
+  },
+  "peerDependencies": {
+    "vue": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=6.9.0",
+    "npm": ">=3.10.8"
+  }
+}
