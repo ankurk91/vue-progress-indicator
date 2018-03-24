@@ -21,6 +21,7 @@ yarn add vue-progress-indicator
 
 ## Usage
 * Include plugin in your ```app.js```
+
 ```js
 import ProgressIndicator from 'vue-progress-indicator';
 Vue.use(ProgressIndicator);
