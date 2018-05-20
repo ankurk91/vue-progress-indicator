@@ -5,14 +5,13 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
-const extractSass = new ExtractTextPlugin('index.min.css');
+const extractSass = new ExtractTextPlugin('vue-loading.min.css');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   context: __dirname,
   resolve: {
     modules: [
-      path.resolve(__dirname, 'src'),
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
@@ -55,16 +54,26 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
-              options: {importLoaders: 1}
+              options: {
+                minimize: true,
+                importLoaders: 1
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: false,
+                plugins: (loader) => [
+                  require('autoprefixer')()
+                ]
+              }
             },
             {
               loader: 'sass-loader',
               options: {importLoaders: 1}
             },
           ],
-          // use style-loader in development
-          fallback: 'style-loader'
-        }),
+        })
       },
     ]
   },
@@ -80,5 +89,8 @@ module.exports = {
   devtool: false,
   performance: {
     hints: false,
+  },
+  stats: {
+    modules: false,
   }
 };

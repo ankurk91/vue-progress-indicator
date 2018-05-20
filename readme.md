@@ -77,10 +77,6 @@ Vue.use(VueProgressIndicator)
 </script>
 ```
 
-## Browser support
-* I have not taken care of old browsers.
-* You can apply [autoprefixer](https://github.com/postcss/autoprefixer) on css to support older browsers.
-
 ## Run examples on your localhost
 * Clone this repo
 * Make sure you have node-js >=6.10 and [yarn](https://yarnpkg.com) >=1.x pre-installed
