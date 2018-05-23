@@ -93,7 +93,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## TODOs
 * More colors
 * More shapes
-* Test case
+* Tests
  
 ## License
 [MIT](LICENSE.txt) License
