@@ -41,12 +41,12 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        exclude: path.resolve(__dirname, 'node_modules'),
+        exclude: /node_modules/
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: path.resolve(__dirname, 'node_modules'),
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
