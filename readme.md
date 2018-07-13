@@ -1,4 +1,4 @@
-# vue-progress-indicator
+# Vue Progress Indicator
 
 [![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
 [![downloads](https://img.shields.io/npm/dt/vue-progress-indicator.svg)](http://npm-stats.com/~packages/vue-progress-indicator)
@@ -39,43 +39,47 @@ Vue.use(ProgressIndicator,{
 * Place global component in your app template somewhere
 ```html
 <progress-indicator class="custom-css-classes"></progress-indicator>
-```
-* Consume API in your components
-```js
-methods: {
-  show () {
-    this.$progress.show();
-  },
-  hide () {
-    this.$progress.hide();
-  },
-  toggle () {
-    this.$progress.toggle();
-  }
-}
+<!-- You can place multiple progress on same page differentiated by their name -->
+<progress-indicator class="another-progress" name="login-form"></progress-indicator>
 ```
 
 ### API methods
+All api methods accepts an optional parameter, the name of the component.
+
 #### `show()`
 Makes the loader visible
+```js
+this.$progress.show();
+this.$progress.show('login-form');
+```
 #### `hide()`
-Hides the loader is visible
+Hides the loader 
+```js
+this.$progress.hide();
+this.$progress.hide('login-form');
+```
 #### `toggle()`
 Toggles the loader visibility
-
+```js
+this.$progress.toggle();
+this.$progress.toggle('login-form');
+```
 
 ## Install in non-module environments (without webpack)
 ```html
 <!-- Vue js -->
-<script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="https://unpkg.com/vue-progress-indicator@latest"></script>
-<link href="https://unpkg.com/vue-progress-indicator@latest/dist/index.min.css" rel="stylesheet">
-<!-- Init the plugin -->
+<script src="https://cdn.jsdelivr.net/npm/vue-progress-indicator@latest"></script>
+<link href="https://cdn.jsdelivr.net/npm/vue-progress-indicator@latest/dist/index.min.css" rel="stylesheet">
+<!-- Install the global component -->
 <script>
 Vue.use(VueProgressIndicator)
 </script>
 ```
+
+## Browser support
+* Modern browsers only
 
 ## Run examples on your localhost
 * Clone this repo

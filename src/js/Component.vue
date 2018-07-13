@@ -1,5 +1,5 @@
 <template>
-  <div v-show="visible" class="v-progress" :aria-hidden="!visible">
+  <div v-show="visible" class="v-progress" :aria-hidden="!visible" aria-label="Loading">
     <div class="indeterminate"></div>
   </div>
 </template>
