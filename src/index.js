@@ -10,15 +10,8 @@ const Plugin = (Vue, params = {}) => {
   let options = Object.assign(defaultOptions, params);
 
   // Register API methods
-  Object.defineProperties(Vue.prototype, {
-    $progress: {
-      get() {
-        return LoaderAPI
-      }
-    }
-  });
+  Vue.prototype.$progress = LoaderAPI;
   Vue.$progress = LoaderAPI;
-
 
   // Register global component
   Vue.component(options.componentName, Component);
