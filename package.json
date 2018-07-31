@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "description": "vue-progress-indicator",
   "main": "dist/index.js",
-  "unpkg": "dist/index.min.js",
+  "browser": "dist/index.min.js",
   "style": "dist/index.min.css",
   "files": [
     "src",
