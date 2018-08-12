@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Vue.js demo</h1>
+    <h1>Vue.js progress indicator demo</h1>
 
     <progress-indicator class="v-fixed-top"></progress-indicator>
 
@@ -14,7 +14,6 @@
 <script>
   import Vue from 'vue';
   import ProgressIndicator from '../src/index';
-  import '../src/sass/index.scss';
 
   Vue.use(ProgressIndicator);
 
