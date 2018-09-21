@@ -6,7 +6,7 @@
 [![github-tag](https://img.shields.io/github/tag/ankurk91/vue-progress-indicator.svg?maxAge=1800)](https://github.com/ankurk91/vue-progress-indicator/)
 [![license](https://img.shields.io/github/license/ankurk91/vue-progress-indicator.svg?maxAge=1800)](https://yarnpkg.com/en/package/vue-progress-indicator)
 
-Vue.js v2.x component for loading indicator
+Vue.js component for loading indicator
 
 ## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/1jsfpkwc/)
 

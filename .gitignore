@@ -1,10 +1,7 @@
-# https://github.com/github/gitignore
 # http://git-scm.com/docs/gitignore
 
-# phpstorm, webstorm
+# Various IDEs
 .idea/
-
-# sublime and other ide
 .project
 *.sublime-*
 .brackets.json
@@ -33,10 +30,8 @@ ehthumbs.db
 .Trash-*
 $RECYCLE.BIN/
 
-
 # Windows shortcuts
 *.lnk
-
 
 # Folder config file
 [Dd]esktop.ini
@@ -44,14 +39,8 @@ $RECYCLE.BIN/
 *.DS_Store
 .Spotlight-V100
 
-
 # node packages
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules/
-
-
-# Bower packages
-bower_components/
 
 # composer
 /vendor/
