@@ -99,7 +99,6 @@ module.exports = {
           beautify: false
         },
         compress: {
-          dead_code: true,
           warnings: false,
           drop_debugger: true,
           drop_console: true
