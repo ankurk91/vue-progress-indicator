@@ -3,7 +3,7 @@ import eventBus from './eventBus';
 const defaultName = 'default';
 const eventPrefix = 'progress';
 
-const LoaderAPI = {
+const Api = {
   show(name = defaultName) {
     eventBus.$emit(`${eventPrefix}.show.${name}`)
   },
@@ -15,4 +15,4 @@ const LoaderAPI = {
   }
 };
 
-export default LoaderAPI;
+export default Api;
