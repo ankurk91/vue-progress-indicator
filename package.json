@@ -1,6 +1,6 @@
 {
   "name": "vue-progress-indicator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "vue-progress-indicator",
   "main": "dist/index.js",
   "browser": "dist/index.min.js",
