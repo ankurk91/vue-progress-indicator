@@ -5,7 +5,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
@@ -73,9 +73,10 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              importLoaders: 1,
-              minimize: true,
+              sourceMap: false,
+              minimize: 1,
               outputStyle: 'compressed',
+              implementation: require('sass'),
             }
           },
         ]
@@ -91,26 +92,30 @@ module.exports = {
       exclude: /\.css$/
     }),
     new VueLoaderPlugin(),
-    new UglifyJsPlugin({
-      sourceMap: false,
-      uglifyOptions: {
-        output: {
-          comments: false,
-          beautify: false
-        },
-        compress: {
-          warnings: false,
-          drop_debugger: true,
-          drop_console: true
-        }
-      }
-    }),
   ],
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        sourceMap: false,
+        terserOptions: {
+          output: {
+            beautify: false,
+          },
+          compress: {
+            drop_debugger: true,
+            drop_console: true
+          }
+        }
+      }),
+    ]
+  },
   devtool: false,
   performance: {
     hints: false,
   },
   stats: {
     modules: false,
+    children: false,
+    entrypoints: false,
   }
 };

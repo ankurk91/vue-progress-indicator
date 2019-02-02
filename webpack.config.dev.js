@@ -71,7 +71,8 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              minimize: false
+              minimize: false,
+              implementation: require('sass'),
             }
           },
         ],
@@ -135,6 +136,8 @@ module.exports = {
   },
   stats: {
     modules: false,
+    children: false,
+    entrypoints: false,
   }
 };
 

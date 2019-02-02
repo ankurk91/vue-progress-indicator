@@ -27,7 +27,7 @@
       }
     },
     created() {
-      events.forEach((method) => {
+      events.map((method) => {
         eventBus.$on(`${eventPrefix}.${method}.${this.name}`, this[method]);
       });
     },
@@ -46,7 +46,7 @@
       }
     },
     beforeDestroy() {
-      events.forEach((method) => {
+      events.map((method) => {
         eventBus.$off(`${eventPrefix}.${method}.${this.name}`, this[method]);
       });
     }
