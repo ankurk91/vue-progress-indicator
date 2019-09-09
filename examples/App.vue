@@ -38,3 +38,9 @@
     }
   }
 </script>
+
+<style>
+  body {
+    font-family: Arial, Verdana, sans-serif;
+  }
+</style>

@@ -67,7 +67,7 @@ this.$progress.toggle('login-form');
 ## Install in non-module environments (without webpack)
 ```html
 <!-- Vue js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-progress-indicator@latest"></script>
 <link href="https://cdn.jsdelivr.net/npm/vue-progress-indicator@latest/dist/index.min.css" rel="stylesheet">
@@ -82,7 +82,7 @@ Vue.use(VueProgressIndicator)
 
 ## Run examples on your localhost
 * Clone this repo
-* Make sure you have node-js `>=6.10` and [yarn](https://yarnpkg.com) `>=1.x` pre-installed
+* Make sure you have node-js `>=8.9` and [yarn](https://yarnpkg.com) `>=1.x` pre-installed
 * Install dependencies - `yarn install`
 * Run webpack dev server - `yarn start`
 * This should open the demo page at `http://localhost:9000` in your default web browser 

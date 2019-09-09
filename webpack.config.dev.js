@@ -5,6 +5,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
   mode: 'development',
   context: __dirname,
@@ -36,43 +38,23 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        use: [
-          {
-            loader: "style-loader",
-            options: {
-              sourceMap: true,
-            }
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-            }
-          },
-        ],
-      },
-      {
         test: /\.s?[ac]ss$/,
         use: [
-          {
-            loader: 'style-loader',
-            options: {
-              sourceMap: true,
-            }
-          },
+          isProduction ? MiniCssExtractPlugin.loader :
+            {
+              loader: 'style-loader',
+              options: {}
+            },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
+              sourceMap: !isProduction,
             }
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
-              minimize: false,
-              implementation: require('sass'),
+              sourceMap: !isProduction,
             }
           },
         ],
@@ -107,12 +89,12 @@ module.exports = {
       hash: false,
       template: './examples/index.html',
       minify: {
-        removeComments: false,
-        collapseWhitespace: false,
-        removeAttributeQuotes: false,
-        minifyJS: false,
-        minifyCSS: false,
-        minifyURLs: false,
+        removeComments: isProduction,
+        collapseWhitespace: isProduction,
+        removeAttributeQuotes: isProduction,
+        minifyJS: isProduction,
+        minifyCSS: isProduction,
+        minifyURLs: isProduction,
       }
     }),
     new webpack.ProvidePlugin({
@@ -120,15 +102,17 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
   ],
-  // webpack-serve related configs
-  serve: {
+  devServer: {
+    contentBase: path.resolve(__dirname, 'docs'),
     host: 'localhost',
     port: 9000,
     open: true,
     hot: true,
-    logTime: true,
-    logLevel: 'info',
-    clipboard: false
+    overlay: {
+      warnings: false,
+      errors: true
+    },
+    stats: 'errors-only',
   },
   devtool: '#cheap-module-eval-source-map',
   performance: {
